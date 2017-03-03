@@ -1,0 +1,14 @@
+{
+  "name": "angular-helper",
+  "version": "0.3.0",
+  "description": "Creates Angular Component Packages",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Sven Liebig",
+  "license": "ISC",
+  "bin": {
+    "ah": "index.js",
+    "angular-helper": "index.js",
+    "nah": "index.js"
+  }
+}
