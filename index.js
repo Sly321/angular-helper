@@ -80,12 +80,12 @@ function getAngularComponentTestTemplate(name, lowerCase) {
 	content += `import { DebugElement } from '@angular/core';\n`;
 	content += `import { } from 'jasmine';\n\n`;
 
-	content += `import { ${name} } from ':/${lowerCase}/${lowerCase}.component}';\n`;
+	content += `import { ${name} } from './${lowerCase}.component';\n`;
 
 	content += `\ndescribe('${name}', () => {\n`;
 	content += `\tlet de: DebugElement;\n`;
 	content += `\tlet comp: ${name};\n`;
-	content += `\tlet fixture: ComponentFixture;\n\n`;
+	content += `\tlet fixture: ComponentFixture<${name}>;\n\n`;
 	content += `\tbeforeEach(async(() => {\n`;
 	content += `\t\tTestBed.configureTestingModule({\n\t\t\tdeclarations: [${name}]\n\t\t}).compileComponents();\n`;
 	content += `\t}));\n\n`;
