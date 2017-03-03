@@ -119,7 +119,7 @@ function writeAngularComponent(name, writeTest) {
     writeHtmlFile(`${lowerCase}/${lowerCase}.component`, `<div class="${lowerCase}-wrapper">\n\t<div class="${lowerCase}-container">\n\t\t{{ heyhoworld }}\n\t</div>\n</div>`);
     writeCssFile(`${lowerCase}/${lowerCase}`, `.${lowerCase}-wrapper {\n\t\n}\n\n.${lowerCase}-container {\n\t\n}`);
 	if(writeTest) {
-		writeTypescriptFile(`${lowerCase}/${lowerCase}.component.spec.ts`, getAngularComponentTestTemplate(name, lowerCase));
+		writeTypescriptFile(`${lowerCase}/${lowerCase}.component.spec`, getAngularComponentTestTemplate(name, lowerCase));
 	}
 }
 
