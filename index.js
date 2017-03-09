@@ -12,6 +12,11 @@
  * Sven Liebig (0.2.2)      31.01.2017              Fix \n Newline
  * Sven Liebig (0.2.3)      31.01.2017              Fix Service File Content
  * Sven Liebig (0.2.4)      01.02.2017              Fix point in CSS files
+ * ... lazy piece of shit that i am.
+ * Sven Liebig (0.3.4)      09.03.2017              Fix Test, and declarations
+ * Sven Liebig (0.3.5)      09.03.2017              Fix lint depression
+ * Sven Liebig (0.3.6)      09.03.2017              Override html and css templates is necessary for jasmine
+ *
  *
  *
  * TODO
@@ -87,8 +92,14 @@ function getAngularComponentTestTemplate(name, lowerCase) {
 	content += `\tlet comp: ${name};\n`;
 	content += `\tlet fixture: ComponentFixture<${name}>;\n\n`;
 	content += `\tbeforeEach(async(() => {\n`;
-	content += `\t\tTestBed.configureTestingModule({\n\t\t\tdeclarations: [${name}]\n\t\t}).compileComponents();\n`;
-	content += `\t}));\n\n`;
+	content += `\t\tTestBed.configureTestingModule({\n\t\t\tdeclarations: [${name}]\n`;
+	content += `\t\t}).overrideComponent(${name}, {\n`;
+	content += `\t\t\tset: {\n`;
+	content += `\t\t\t\ttemplateUrl: '/base/src/app/components/${lowerCase}/${lowerCase}.component.html',\n`;
+	content += `\t\t\t\tstyleUrls: ['/base/src/app/components/${lowerCase}/${lowerCase}.css']\n`;
+	content += `\t\t\t}\n`;
+	content += `\t\t}).compileComponents();\n`;
+	content += `\t}));\n`;
 	content += `\tbeforeEach(() => {\n`;
 	content += `\t\tfixture = TestBed.createComponent(${name});\n`;
 	content += `\t\tcomp = fixture.componentInstance;\n`;
