@@ -92,13 +92,13 @@ function getAngularComponentTestTemplate(name, lowerCase) {
 	content += `\tbeforeEach(() => {\n`;
 	content += `\t\tfixture = TestBed.createComponent(${name});\n`;
 	content += `\t\tcomp = fixture.componentInstance;\n`;
-	content += `\t\tde = fixture.debugElement.query(By.css('h1'));\n`;
+	content += `\t\tde = fixture.debugElement.query(By.css('.${lowerCase}-container'));\n`;
 	content += `\t});\n\n`;
 	content += `\tit('should create component', () => expect(comp).toBeDefined());\n\n`;
-	content += `\tit('should have expected <h1> text', () => {\n`;
+	content += `\tit('should have expected .${lowerCase}-container text to be heyho', () => {\n`;
 	content += `\t\tfixture.detectChanges();\n`;
-	content += `\t\tconst h1 = de.nativeElement;\n`;
-	content += `\t\texpect(h1.innerText).toMatch(/angular/i, '<h1> should say something about "Angular"');\n`;
+	content += `\t\tconst ele = de.nativeElement;\n`;
+	content += `\t\texpect(ele.innerText).toMatch(/heyho/i, '.${lowerCase}-container should say something about "heyho"');\n`;
 	content += `\t});\n`;
 	content += `});`;
     return comment + content;
