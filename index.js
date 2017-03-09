@@ -68,7 +68,7 @@ function getAngularComponentTemplate(name, lowerCase) {
                   `\tselector: '${lowerCase}',\n\ttemplateUrl: 'app/components/` +
                   `${lowerCase}/${lowerCase}.component.html',\n\tstyleUrls: ['a` +
                   `pp/components/${lowerCase}/${lowerCase}.css']\n})\nexport cl` +
-                  `ass ${name} {\n\theyhoworld: string = "heyho";\n\n\tconstructor(` +
+                  `ass ${name} {\n\theyhoworld: string = 'heyho';\n\n\tconstructor(` +
                   `) {\n\t}\n\n\tngOnInit() {\n\t}\n}`;
     return comment + content;
 }
